@@ -1,8 +1,9 @@
 package com.udacity.gradle.builditbigger;
 
-import android.content.Intent;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,20 +35,14 @@ public class MainActivityFragment extends Fragment {
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .build();
         mAdView.loadAd(adRequest);
-
         Button button=(Button) root.findViewById(R.id.buttonTellJoke);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 RetrieveJoke retrieveJoke=new RetrieveJoke();
-                //Toast.makeText(getContext(), retrieveJoke.getJoke(), Toast.LENGTH_SHORT).show();
-                Intent intent=new Intent(getActivity(), com.example.jokedisplayer.MainActivity.class);
-                intent.putExtra(com.example.jokedisplayer.MainActivity.JOKE,retrieveJoke.getJoke());
-                startActivity(intent);
+                new BackEndAsyncTask().execute(new Pair<Context, String>(getContext(), " "));
             }
         });
-
-
 
         return root;
     }

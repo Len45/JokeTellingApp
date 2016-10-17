@@ -8,12 +8,14 @@ import android.view.View;
 import android.widget.Toast;
 
 
+
 public class MainActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
     }
 
 
@@ -35,13 +37,11 @@ public class MainActivity extends ActionBarActivity {
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
     public void tellJoke(View view) {
         Toast.makeText(this, "derp", Toast.LENGTH_SHORT).show();
     }
-
 
 }

@@ -4,24 +4,24 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
     public static String JOKE="joke";
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jokedisplay);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar1);
-        setSupportActionBar(toolbar);
+        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar1);
+        //setSupportActionBar(toolbar);
         String joke=getIntent().getExtras().getString("joke");
         SharedPreferences preferences= PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         SharedPreferences.Editor editor=preferences.edit();
         editor.putString(JOKE,joke);
-        editor.commit();
+        editor.apply();
 
     }
 
