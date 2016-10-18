@@ -27,10 +27,7 @@ public class BackEndAsyncTask extends AsyncTask<Pair<Context, String>, Void, Str
                     .setRootUrl("https://builditbigge-manoj.appspot.com/_ah/api/");
             myApiService = builder.build();
 
-
-
         }
-        context = params[0].first;
         String name = params[0].second;
         try {
             String joke=myApiService.getJokes(name).execute().getData();

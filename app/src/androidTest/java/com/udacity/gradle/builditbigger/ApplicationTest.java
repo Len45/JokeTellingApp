@@ -23,12 +23,14 @@ public class ApplicationTest extends AndroidTestCase {
         }
         try {
             String joke=myApiService.getJokes(" ").execute().getData();
-            if (joke==null | joke==""){
+            if (joke==null | joke.equals("")){
                 fail();
             }
             assertTrue(true);
         } catch (IOException e) {
-            fail();
+            if (e.getMessage()==null | e.getMessage().equals("")){
+                fail();
+            }
         }
     }
 }
