@@ -26,7 +26,6 @@ public class MainActivityFragment extends Fragment {
         SharedPreferences preferences= PreferenceManager.getDefaultSharedPreferences(getContext());
         String joke=preferences.getString(MainActivity.JOKE,"not retrieved");
         textView.setText(joke);
-
         return rootView;
     }
 }

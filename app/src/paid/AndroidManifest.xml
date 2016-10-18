@@ -16,10 +16,7 @@
         >
 
         <!-- This meta-data tag is required to use Google Play Services. -->
-        <meta-data
-            tools:node="remove"
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
+
 
         <activity
             android:name=".MainActivity"
@@ -31,12 +28,6 @@
             </intent-filter>
         </activity>
         <!-- Include the AdActivity configChanges and theme. -->
-        <activity
-            tools:node="remove"
-            android:name="com.google.android.gms.ads.AdActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
-            android:theme="@android:style/Theme.Translucent" />
-        <activity android:name="com.example.jokedisplayer.MainActivity" />
     </application>
 
 </manifest>

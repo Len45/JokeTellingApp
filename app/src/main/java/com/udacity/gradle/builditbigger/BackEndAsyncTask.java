@@ -1,10 +1,10 @@
 package com.udacity.gradle.builditbigger;
 
 import android.content.Context;
-import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
 import android.support.v4.util.Pair;
-import android.widget.Toast;
 
 import com.example.manoj2prabhakar.builitbigger.backend.myApi.MyApi;
 import com.google.api.client.extensions.android.http.AndroidHttp;
@@ -46,7 +46,8 @@ public class BackEndAsyncTask extends AsyncTask<Pair<Context, String>, Void, Str
         context = params[0].first;
         String name = params[0].second;
         try {
-            return myApiService.getJokes(name).execute().getData();
+            String joke=myApiService.getJokes(name).execute().getData();
+            return joke;
         } catch (IOException e) {
             return e.getMessage();
         }
@@ -54,11 +55,9 @@ public class BackEndAsyncTask extends AsyncTask<Pair<Context, String>, Void, Str
 
     @Override
     protected void onPostExecute(String result) {
-        //Log.v("asd",result);
-        Toast.makeText(context, result, Toast.LENGTH_LONG).show();
-        Intent intent=new Intent(context, com.example.jokedisplayer.MainActivity.class);
-        intent.putExtra(com.example.jokedisplayer.MainActivity.JOKE,result);
-        context.startActivity(intent);
-
+        SharedPreferences prefs= PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor edit=prefs.edit();
+        edit.putString(com.example.jokedisplayer.MainActivity.JOKE,result);
+        edit.commit();
     }
 }
