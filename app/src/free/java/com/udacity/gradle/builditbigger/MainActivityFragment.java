@@ -31,6 +31,9 @@ public class MainActivityFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
+
         final View root = inflater.inflate(R.layout.fragment_main, container, false);
 
         AdView mAdView = (AdView) root.findViewById(R.id.adView);
@@ -80,4 +83,5 @@ public class MainActivityFragment extends Fragment {
 
         mInterstitialAd.loadAd(adRequest);
     }
+
 }
