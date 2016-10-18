@@ -29,6 +29,7 @@ public class BackEndAsyncTask extends AsyncTask<Pair<Context, String>, Void, Str
 
         }
         String name = params[0].second;
+        context=params[0].first;
         try {
             String joke=myApiService.getJokes(name).execute().getData();
             return joke;
